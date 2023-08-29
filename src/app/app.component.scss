@@ -1,67 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
-@mixin flex-center-column {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-}
 
-.container {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  @include flex-center-column();
-  flex-direction: row !important;
-  align-items: center;
-  h1 {
-    @include flex-center-column();
-    font-size: 24px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 200;
-    color: #926b62;
-    span {
-      font-size: 44px;
-      font-weight: 100;
-      color: #591f10;
-      margin: 1rem;
-    }
-  }
-  .buttons {
-    width: 300px;
-    padding: 2rem;
-    border-left: 1px solid #551b0c;
-    height: 50%;
-    margin-left: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 14.5rem;
-
-    button {
-      position: relative;
-      height: 3rem;
-      padding: 0 2rem;
-      background: none;
-      border: 1px solid orange;
-      padding-left: 3rem;
-      transition: background-color 0.3s ease-in;
-      text-transform: uppercase;
-      color: #591f10;
-      img {
-        position: absolute;
-        width: 12%;
-        left: 0;
-        top: 0;
-        margin-top: 8px;
-        margin-left: 10px;
-      }
-    }
-    button:hover {
-      color: whitesmoke;
-      background-color: orange;
-      border: none;
-    }
-  }
-}
 .nav {
   position: fixed;
   top: 0;
@@ -81,7 +19,7 @@
 
       &:hover {
         color: whitesmoke !important;
-        border-bottom: 1px solid whitesmoke;
+        border-bottom: 1px solid whitesmoke !important;
         padding-bottom: 0.5rem;
       }
     }
@@ -107,36 +45,11 @@
         transition: 0.3s ease-in-out;
         cursor: pointer;
       }
+      a:hover {
+        color: #f8b50e;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid #f8b50e;
+      }
     }
   }
-}
-
-.blob1 {
-  position: absolute;
-  bottom: 0;
-  margin-bottom: -1rem;
-  rotate: 51deg;
-  z-index: -1;
-  margin-left: -8rem;
-}
-
-.blob2 {
-  position: absolute;
-  top: 0;
-  margin-top: -10rem;
-  rotate: 147deg;
-  z-index: -1;
-}
-
-.burger {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 35%;
-  z-index: -1;
-}
-
-.sample {
-  width: 100%;
-  height: 100vh;
 }
