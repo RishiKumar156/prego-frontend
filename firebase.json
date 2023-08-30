@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "pregofrontend",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "pregopantry-85952": {
+      "hosting": {
+        "pregofrontend": [
+          "pregopantry-85952"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "pregopantry-85952"
+  }
+}

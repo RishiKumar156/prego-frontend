@@ -6,14 +6,22 @@ import { AppComponent } from './app.component';
 import { ErrorComponent } from './components/error/error.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { UserprofileComponent } from './components/userprofile/userprofile.component';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from 'src/environments/environment';
 @NgModule({
-  declarations: [AppComponent, ErrorComponent, LandingComponent, UserprofileComponent],
-  imports: [BrowserModule, AppRoutingModule, provideFirebaseApp(() => initializeApp(environment.firebase)), provideAuth(() => getAuth()), provideFirestore(() => getFirestore())],
+  declarations: [
+    AppComponent,
+    ErrorComponent,
+    LandingComponent,
+    UserprofileComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebase),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
