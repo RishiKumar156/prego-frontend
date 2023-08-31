@@ -1,21 +1,74 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
 
+// .nav {
+//   position: fixed;
+//   top: 0;
+//   height: 15vh;
+//   width: 100%;
+//   z-index: 1;
+//   background-color: transparent;
+//   transition: background-color 0.3s ease; /* Add a smooth transition */
+
+//   &.scrolled {
+//     background-color: #f8b50e;
+
+//     a {
+//       color: black; /* Default link color */
+//       text-decoration: none;
+//       transition: color 0.3s ease; /* Add a smooth color transition */
+
+//       &:hover {
+//         color: whitesmoke !important;
+//         border-bottom: 1px solid whitesmoke !important;
+//         padding-bottom: 0.5rem;
+//       }
+//     }
+//   }
+// }
+
+// .nav {
+//   display: flex;
+//   justify-content: space-evenly;
+//   align-items: center;
+//   font-family: "Roboto", sans-serif;
+//   ul {
+//     display: flex;
+//     li {
+//       margin: 0 3rem;
+//       list-style: none;
+//       a {
+//         text-decoration: none;
+//         text-transform: uppercase;
+//         color: #652f22;
+//         font-size: 1rem;
+//         font-weight: 300;
+//         transition: 0.3s ease-in-out;
+//         cursor: pointer;
+//       }
+//       a:hover {
+//         color: #f8b50e;
+//         padding-bottom: 0.5rem;
+//         border-bottom: 1px solid #f8b50e;
+//       }
+//     }
+//   }
+// }
+
 .nav {
   position: fixed;
   top: 0;
-  height: 15vh;
   width: 100%;
   z-index: 1;
   background-color: transparent;
-  transition: background-color 0.3s ease; /* Add a smooth transition */
+  transition: background-color 0.3s ease;
 
   &.scrolled {
     background-color: #f8b50e;
 
     a {
-      color: black; /* Default link color */
+      color: black;
       text-decoration: none;
-      transition: color 0.3s ease; /* Add a smooth color transition */
+      transition: color 0.3s ease;
 
       &:hover {
         color: whitesmoke !important;
@@ -24,18 +77,17 @@
       }
     }
   }
-}
 
-.nav {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
   font-family: "Roboto", sans-serif;
+
   ul {
     display: flex;
+    list-style: none;
     li {
       margin: 0 3rem;
-      list-style: none;
       a {
         text-decoration: none;
         text-transform: uppercase;

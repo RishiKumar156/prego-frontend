@@ -14,6 +14,9 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { EmailSignUpComponent } from './components/email-sign-up/email-sign-up.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +32,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     AngularFireModule.initializeApp(environment.firebase),
     BrowserAnimationsModule,
     MatDialogModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

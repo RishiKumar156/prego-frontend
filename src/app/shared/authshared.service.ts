@@ -8,12 +8,7 @@ import { EmailSignUpComponent } from '../components/email-sign-up/email-sign-up.
   providedIn: 'root',
 })
 export class AuthsharedService {
-  constructor(
-    private fireAuth: AngularFireAuth,
-    private router: Router,
-    private dialog: MatDialog,
-    private dialogref: MatDialogRef<EmailSignUpComponent>
-  ) {}
+  constructor(private fireAuth: AngularFireAuth, private router: Router) {}
 
   login(email: string, password: string) {
     this.fireAuth.signInWithEmailAndPassword(email, password).then(

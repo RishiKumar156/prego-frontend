@@ -1,1 +1,15 @@
-<div class="container"></div>
+<form class="container" (submit)="emailSignIn()">
+  <input
+    type="text"
+    placeholder="Enter You'r Email"
+    name="userEmail"
+    [(ngModel)]="registerModle.userEmail"
+  />
+  <input
+    type="password"
+    name="password"
+    placeholder="Enter You'r Password"
+    [(ngModel)]="registerModle.password"
+  />
+  <input type="submit" value="submit" />
+</form>
