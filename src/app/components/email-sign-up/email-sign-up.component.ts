@@ -1,5 +1,9 @@
 import { MatDialogRef } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-email-sign-up',
@@ -7,13 +11,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./email-sign-up.component.scss'],
 })
 export class EmailSignUpComponent implements OnInit {
+  emailRegister = 'EmailRegister/EmailRegister';
   registerModle: any = {
-    userEmail: '',
+    UserName: '',
     password: '',
   };
-  constructor(private dialogRef: MatDialogRef<EmailSignUpComponent>) {}
+
+  constructor(
+    private dialogRef: MatDialogRef<EmailSignUpComponent>,
+    private http: HttpClient,
+    private router: Router
+  ) {}
   ngOnInit(): void {}
   emailSignIn() {
-    
+    this.http
+      .post(`${environment.baseURL}/${this.emailRegister}`, this.registerModle)
+      .subscribe(
+        (data) => {
+          if (data) {
+            console.log(data);
+            window.location.reload();
+          }
+        },
+        (error) => {
+          console.log(error.message);
+        }
+      );
   }
 }
