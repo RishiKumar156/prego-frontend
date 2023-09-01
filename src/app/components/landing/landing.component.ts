@@ -17,7 +17,6 @@ export class LandingComponent implements OnInit {
   googleSingin() {
     this.sharedService.GoogleSingIn();
   }
-
   openDialog() {
     this.dailog.open(EmailSignUpComponent, { panelClass: 'emailSignUp' });
   }

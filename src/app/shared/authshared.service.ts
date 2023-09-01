@@ -7,7 +7,6 @@ import { EmailSignUpComponent } from '../components/email-sign-up/email-sign-up.
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs';
-import { GloginComponent } from '../components/glogin/glogin.component';
 @Injectable({
   providedIn: 'root',
 })
@@ -23,8 +22,7 @@ export class AuthsharedService {
     private fireAuth: AngularFireAuth,
     private router: Router,
     private http: HttpClient,
-    private MatDialog: MatDialog,
-    private MatDialogRef: MatDialogRef<GloginComponent>
+    private MatDialog: MatDialog
   ) {}
 
   login(email: string, password: string) {
@@ -92,9 +90,6 @@ export class AuthsharedService {
               (err: HttpErrorResponse) => {
                 if (err.status == 400) {
                   alert('User already exists , Please Login');
-                  this.MatDialog.open(GloginComponent, {
-                    panelClass: 'GoogleLoginDialog',
-                  });
                 }
               }
             );
