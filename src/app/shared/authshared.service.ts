@@ -6,18 +6,14 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { EmailSignUpComponent } from '../components/email-sign-up/email-sign-up.component';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { map } from 'rxjs';
+import { Subject, map } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthsharedService {
   googleRegisterObj: string = 'Google/newuser';
-  GooglRegister: any = {
-    Gusername: '',
-    GmailId: '',
-    Picture: '',
-    Gid: '',
-  };
+  private GoogleUserData = new Subject<any>();
+  public userData = this.GoogleUserData.asObservable();
   constructor(
     private fireAuth: AngularFireAuth,
     private router: Router,
@@ -25,67 +21,30 @@ export class AuthsharedService {
     private MatDialog: MatDialog
   ) {}
 
-  login(email: string, password: string) {
-    this.fireAuth.signInWithEmailAndPassword(email, password).then(
-      (res) => {
-        sessionStorage.setItem(JSON.stringify('auth'), 'token');
-        if (res) {
-          this.router.navigate(['home']);
-        }
-      },
-      (error) => {
-        alert('Some thing went wrong');
-        this.router.navigate(['']);
-      }
-    );
-  }
-  register(email: string, password: string) {
-    this.fireAuth.createUserWithEmailAndPassword(email, password).then(
-      (res) => {
-        if (res) {
-          this.router.navigate(['']);
-          alert('Register was successful');
-        }
-      },
-      (error) => {
-        alert('some thing went wrong');
-        console.log(error);
-        this.router.navigate(['error']);
-      }
-    );
-  }
-  singOut() {
-    this.fireAuth.signOut().then(
-      (res) => {
-        this.router.navigate(['']);
-        alert('singOut successfully');
-      },
-      (error) => {
-        alert('some thing went wrong');
-        console.log(error.message);
-      }
-    );
-  }
   GoogleSingIn() {
     this.fireAuth.signInWithPopup(new GoogleAuthProvider()).then(
       (res: any) => {
         if (res) {
-          let GoogleMailid = res.additionalUserInfo?.profile; // console.log(GoogleMailid.id);
-          this.GooglRegister.GmailId = GoogleMailid.email;
-          this.GooglRegister.Gusername = GoogleMailid.name;
-          this.GooglRegister.Picture = GoogleMailid.picture;
-          this.GooglRegister.Gid = GoogleMailid.id;
+          let GoogleMailid = res.additionalUserInfo?.profile;
+          const googleRegisterData = {
+            GmailId: GoogleMailid.email,
+            Gusername: GoogleMailid.name,
+            Picture: GoogleMailid.picture,
+            Gid: GoogleMailid.id,
+          };
+          this.GoogleUserData.next(googleRegisterData);
+          // console.log(this.GoogleUserData);
           this.http
             .post(
               `${environment.baseURL}/${this.googleRegisterObj}`,
-              this.GooglRegister
+              googleRegisterData
             )
             .subscribe(
               (res) => {
                 console.log(res);
                 sessionStorage.setItem('GoogleId', GoogleMailid.id);
-                this.router.navigate(['/home']);
-                alert('googleSingIn successfully');
+                this.router.navigate(['/dashboard']);
+                alert('GoogleLogin successfully');
               },
               (err: HttpErrorResponse) => {
                 if (err.status == 400) {

@@ -1,3 +1,4 @@
+import { AuthsharedService } from 'src/app/shared/authshared.service';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,6 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  constructor() {}
-  ngOnInit(): void {}
+  username: any;
+  constructor(private AuthsharedService: AuthsharedService) {}
+  ngOnInit(): void {
+    this.AuthsharedService.userData.subscribe((data) => {
+      console.log(data);
+    });
+  }
 }
