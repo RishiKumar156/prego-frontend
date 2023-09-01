@@ -4,11 +4,28 @@ import { Router } from '@angular/router';
 import { GoogleAuthProvider } from '@angular/fire/auth';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { EmailSignUpComponent } from '../components/email-sign-up/email-sign-up.component';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { map } from 'rxjs';
+import { GloginComponent } from '../components/glogin/glogin.component';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthsharedService {
-  constructor(private fireAuth: AngularFireAuth, private router: Router) {}
+  googleRegisterObj: string = 'Google/newuser';
+  GooglRegister: any = {
+    Gusername: '',
+    GmailId: '',
+    Picture: '',
+    Gid: '',
+  };
+  constructor(
+    private fireAuth: AngularFireAuth,
+    private router: Router,
+    private http: HttpClient,
+    private MatDialog: MatDialog,
+    private MatDialogRef: MatDialogRef<GloginComponent>
+  ) {}
 
   login(email: string, password: string) {
     this.fireAuth.signInWithEmailAndPassword(email, password).then(
@@ -53,13 +70,34 @@ export class AuthsharedService {
   }
   GoogleSingIn() {
     this.fireAuth.signInWithPopup(new GoogleAuthProvider()).then(
-      (res) => {
+      (res: any) => {
         if (res) {
-          sessionStorage.setItem('token', JSON.stringify(res.user?.uid));
-          let GoogleMailid = res.additionalUserInfo?.profile;
-          console.log(GoogleMailid);
-          this.router.navigate(['/home']);
-          alert('googleSingIn successfully');
+          let GoogleMailid = res.additionalUserInfo?.profile; // console.log(GoogleMailid.id);
+          this.GooglRegister.GmailId = GoogleMailid.email;
+          this.GooglRegister.Gusername = GoogleMailid.name;
+          this.GooglRegister.Picture = GoogleMailid.picture;
+          this.GooglRegister.Gid = GoogleMailid.id;
+          this.http
+            .post(
+              `${environment.baseURL}/${this.googleRegisterObj}`,
+              this.GooglRegister
+            )
+            .subscribe(
+              (res) => {
+                console.log(res);
+                sessionStorage.setItem('GoogleId', GoogleMailid.id);
+                this.router.navigate(['/home']);
+                alert('googleSingIn successfully');
+              },
+              (err: HttpErrorResponse) => {
+                if (err.status == 400) {
+                  alert('User already exists , Please Login');
+                  this.MatDialog.open(GloginComponent, {
+                    panelClass: 'GoogleLoginDialog',
+                  });
+                }
+              }
+            );
         }
       },
       (err) => {

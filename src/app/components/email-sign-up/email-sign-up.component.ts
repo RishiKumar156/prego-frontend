@@ -27,10 +27,11 @@ export class EmailSignUpComponent implements OnInit {
     this.http
       .post(`${environment.baseURL}/${this.emailRegister}`, this.registerModle)
       .subscribe(
-        (data) => {
+        (data: any) => {
           if (data) {
             console.log(data);
             window.location.reload();
+            sessionStorage.setItem('userGuid', data['sessionGuid']);
           }
         },
         (error) => {

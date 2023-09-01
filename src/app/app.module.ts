@@ -19,6 +19,8 @@ import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { GloginComponent } from './components/glogin/glogin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +29,8 @@ import { HttpClientModule } from '@angular/common/http';
     UserprofileComponent,
     HomepageComponent,
     EmailSignUpComponent,
+    DashboardComponent,
+    GloginComponent,
   ],
   imports: [
     BrowserModule,
