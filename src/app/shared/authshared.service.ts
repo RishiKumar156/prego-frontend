@@ -20,7 +20,47 @@ export class AuthsharedService {
     private http: HttpClient,
     private MatDialog: MatDialog
   ) {}
-
+  login(email: string, password: string) {
+    this.fireAuth.signInWithEmailAndPassword(email, password).then(
+      (res) => {
+        sessionStorage.setItem(JSON.stringify('auth'), 'token');
+        if (res) {
+          this.router.navigate(['home']);
+        }
+      },
+      (error) => {
+        alert('Some thing went wrong');
+        this.router.navigate(['']);
+      }
+    );
+  }
+  register(email: string, password: string) {
+    this.fireAuth.createUserWithEmailAndPassword(email, password).then(
+      (res) => {
+        if (res) {
+          this.router.navigate(['']);
+          alert('Register was successful');
+        }
+      },
+      (error) => {
+        alert('some thing went wrong');
+        console.log(error);
+        this.router.navigate(['error']);
+      }
+    );
+  }
+  singOut() {
+    this.fireAuth.signOut().then(
+      (res) => {
+        this.router.navigate(['']);
+        alert('singOut successfully');
+      },
+      (error) => {
+        alert('some thing went wrong');
+        console.log(error.message);
+      }
+    );
+  }
   GoogleSingIn() {
     this.fireAuth.signInWithPopup(new GoogleAuthProvider()).then(
       (res: any) => {
