@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: flex-start;
   .items {
-    margin-left: 5rem;
+    margin-left: 10rem;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -25,7 +25,25 @@
     .big2 {
       font-size: 24px;
       font-weight: 100;
-      margin: 0 0 1rem 1rem;
+      margin: 0 0 2rem 1rem;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    button {
+      margin-left: 1rem;
+      padding: 1rem;
+      border: none;
+      background-color: #ff4c59;
+      color: white;
+      font-size: 14px;
+      font-weight: 100;
+      transition: 0.3s ease-in;
+    }
+    button:hover {
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.212),
+        0px 0px 80px rgba(0, 0, 0, 0.3);
     }
   }
   .ellipse {
@@ -34,15 +52,19 @@
     right: 0;
     z-index: -1;
     width: 25%;
-    margin-bottom: 5rem;
-    margin-right: 5.7rem;
+    margin-bottom: 10rem;
+    margin-right: 8rem;
   }
 
   .noodel {
     position: absolute;
     bottom: 0;
     right: 0;
-    margin-bottom: 4rem;
-    margin-right: 3rem;
+    margin-bottom: 8rem;
+    margin-right: 5rem;
   }
+}
+
+.specials {
+  width: 100%;
 }

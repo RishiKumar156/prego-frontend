@@ -14,10 +14,17 @@
   font-family: "Roboto", sans-serif;
   &.scrolled {
     // e4eae0d6
+    .logo {
+      h1 {
+        color: white !important;
+        span {
+          color: white !important;
+        }
+      }
+    }
     background-color: #ff3a49e8;
-
     a {
-      color: black;
+      color: white !important;
       text-decoration: none;
       transition: color 0.3s ease;
 
