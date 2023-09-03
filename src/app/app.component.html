@@ -1,17 +1,29 @@
 <div class="nav" [ngClass]="{ scrolled: isScrolled }">
   <div class="logo">
-    <img src="../assets/images/prego.png" alt="" />
+    <h1>Prego Pantry</h1>
   </div>
   <div class="holder">
     <div class="items">
       <ul>
         <li><a href="" class="items1">Home</a></li>
-        <li><a href="" class="items2">Recervation</a></li>
-        <li><a href="" class="items3">Foods</a></li>
-        <li><a href="" class="items3">Orders</a></li>
-        <li><a href="" class="items4">Profile</a></li>
+        <li><a href="">Order Now</a></li>
+        <li><a href="">Specials</a></li>
       </ul>
     </div>
+  </div>
+  <div class="auths">
+    <ul>
+      <li><a href="" class="auth1">Login</a></li>
+      <li><a href="" class="auth2">Register</a></li>
+      <li>
+        <button mat-button [matMenuTriggerFor]="menu">Options</button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Profile</button>
+          <button mat-menu-item>Orders</button>
+          <button mat-menu-item>Favorites</button>
+        </mat-menu>
+      </li>
+    </ul>
   </div>
 </div>
 <router-outlet></router-outlet>

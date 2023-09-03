@@ -6,13 +6,13 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { EmailSignUpComponent } from '../components/email-sign-up/email-sign-up.component';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Subject, map } from 'rxjs';
+import { BehaviorSubject, Subject, map } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthsharedService {
   googleRegisterObj: string = 'Google/newuser';
-  private GoogleUserData = new Subject<any>();
+  private GoogleUserData = new BehaviorSubject<any>(null);
   public userData = this.GoogleUserData.asObservable();
   constructor(
     private fireAuth: AngularFireAuth,
@@ -73,7 +73,6 @@ export class AuthsharedService {
             Gid: GoogleMailid.id,
           };
           this.GoogleUserData.next(googleRegisterData);
-          // console.log(this.GoogleUserData);
           this.http
             .post(
               `${environment.baseURL}/${this.googleRegisterObj}`,
@@ -81,7 +80,6 @@ export class AuthsharedService {
             )
             .subscribe(
               (res) => {
-                console.log(res);
                 sessionStorage.setItem('GoogleId', GoogleMailid.id);
                 this.router.navigate(['/dashboard']);
                 alert('GoogleLogin successfully');
@@ -89,6 +87,7 @@ export class AuthsharedService {
               (err: HttpErrorResponse) => {
                 if (err.status == 400) {
                   alert('User already exists , Please Login');
+                  this.router.navigate(['']);
                 }
               }
             );

@@ -20,6 +20,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatMenuModule } from '@angular/material/menu';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +43,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     MatInputModule,
     MatFormFieldModule,
     HttpClientModule,
+    MatSelectModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
