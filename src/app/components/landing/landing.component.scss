@@ -31,19 +31,31 @@
       align-items: center;
       justify-content: space-between;
     }
-    button {
+    .foods {
+      border: 1px solid #ff4c59;
+      background-color: transparent;
+      width: 25%;
+      height: 40px;
+      position: relative;
+      color: #ff4c59;
       margin-left: 1rem;
-      padding: 1rem;
-      border: none;
-      background-color: #ff4c59;
-      color: white;
-      font-size: 14px;
-      font-weight: 100;
-      transition: 0.3s ease-in;
     }
-    button:hover {
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.212),
-        0px 0px 80px rgba(0, 0, 0, 0.3);
+    .foods::before {
+      width: 0%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #ff4c59;
+      z-index: -1;
+      content: "";
+      transition: all 0.3s ease-in;
+    }
+    .foods:hover::before {
+      width: 100%;
+    }
+    .foods:hover {
+      color: white;
     }
   }
   .ellipse {
@@ -67,4 +79,78 @@
 
 .specials {
   width: 100%;
+  display: flex;
+  padding: 0 5rem;
+  margin: 3rem 0;
+  .content {
+    h1 {
+      color: #ff4c59;
+      margin: 0.5rem;
+    }
+    margin: 2rem;
+    padding-left: 1rem;
+    border-left: 5px solid #ff4c59;
+  }
+}
+
+.reservation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  margin: 5rem 0;
+
+  img {
+    height: 100%;
+    box-shadow: 0px 0px 5.3px rgba(0, 0, 0, 0.116),
+      0px 0px 17.9px rgba(0, 0, 0, 0.165), 0px 0px 80px rgba(0, 0, 0, 0.21);
+  }
+  form {
+    width: 40%;
+    height: 100%;
+    background-color: #ff4c59;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    h3 {
+      font-size: 30px;
+      font-weight: 500;
+      color: white;
+      text-transform: uppercase;
+      margin: 2rem 0;
+    }
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0 5rem;
+      input,
+      textarea {
+        margin-bottom: 1rem;
+        width: 100%;
+        border: none;
+        outline: none;
+        border-radius: 2px;
+        padding-left: 20px;
+        height: 40px;
+        background-color: white;
+      }
+      textarea {
+        padding-top: 20px;
+        height: 150px !important;
+      }
+      .submit {
+        font-size: 14px;
+        font-weight: 100;
+        transition: 0.3s ease-in;
+      }
+      .submit:hover {
+        color: #ff4c59;
+      }
+    }
+  }
 }
