@@ -1,27 +1,8 @@
 <mat-dialog-content>
-  <h1>Sing-Up with <span>EmailId</span> and <span>Password</span></h1>
-  <form class="container" (submit)="emailSignIn()">
-    <mat-form-field class="email" appearance="outline">
-      <mat-label> Email Id </mat-label>
-      <input
-        type="text"
-        matInput
-        placeholder="Enter You'r Email"
-        name="username"
-        [(ngModel)]="registerModle.UserName"
-      />
-    </mat-form-field>
-
-    <mat-form-field class="password" appearance="outline">
-      <mat-label>Password</mat-label>
-      <input
-        matInput
-        type="password"
-        name="password"
-        placeholder="Enter You'r Password"
-        [(ngModel)]="registerModle.password"
-      />
-    </mat-form-field>
-    <input type="submit" class="submit" value="submit" />
-  </form>
+  <div class="container">
+    <h1>Login</h1>
+    <div class="buttons">
+      <button>Google Login</button>
+    </div>
+  </div>
 </mat-dialog-content>

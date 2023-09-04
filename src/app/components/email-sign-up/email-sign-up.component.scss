@@ -1,41 +1,7 @@
-mat-dialog-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  span {
-    color: red;
-    margin: 0 0.5rem;
-  }
+.container {
   h1 {
-    margin: 1rem;
-    padding: 2rem;
     font-size: 24px;
-    font-weight: 100;
-  }
-}
-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  .password {
-    margin-bottom: 1rem;
-  }
-  input {
-    width: 300px;
-    outline: none;
-    border: none;
-  }
-
-  .submit {
-    border: 1px solid red;
-    background-color: rgba(255, 0, 0, 0.742);
-    color: white;
-    font-size: 20px;
-    padding: 1rem;
-    transition: 0.3s ease-in;
-    margin-bottom: 3rem;
-  }
-  .submit:hover {
-    background-color: rgba(255, 0, 0, 0.785);
+    font-weight: 500;
+    text-transform: uppercase;
   }
 }
