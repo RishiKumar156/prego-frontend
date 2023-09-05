@@ -1,3 +1,4 @@
+import { AuthsharedService } from 'src/app/shared/authshared.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -20,7 +21,8 @@ export class EmailSignUpComponent implements OnInit {
   constructor(
     private dialogRef: MatDialogRef<EmailSignUpComponent>,
     private http: HttpClient,
-    private router: Router
+    private router: Router,
+    private authsharedService: AuthsharedService
   ) {}
   ngOnInit(): void {}
   emailSignIn() {
@@ -32,11 +34,16 @@ export class EmailSignUpComponent implements OnInit {
             console.log(data);
             window.location.reload();
             sessionStorage.setItem('userGuid', data['sessionGuid']);
+            this.dialogRef.close();
           }
         },
         (error) => {
           console.log(error.message);
         }
       );
+  }
+  gSingIn() {
+    this.dialogRef.close();
+    return this.authsharedService.GoogleSingIn();
   }
 }

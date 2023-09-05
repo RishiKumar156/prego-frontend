@@ -1,3 +1,7 @@
+mat-dialog-content {
+  margin: 1rem;
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -5,17 +9,102 @@
   justify-content: center;
   h1 {
     font-size: 24px;
-    font-weight: 500;
+    font-weight: 900;
     text-transform: uppercase;
+    letter-spacing: 14px;
+    margin-bottom: 2rem;
+    color: royalblue;
   }
   width: 18.75rem;
   .email {
+    width: 100%;
     form {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: space-evenly;
       width: 100%;
+      input {
+        width: 100%;
+        outline: none;
+        border: none;
+        padding: 0 0 0.3rem 0.5rem;
+        height: 40px;
+        border-bottom: 2px solid rgba(255, 58, 73, 0.9098039216);
+        margin-bottom: 2rem;
+      }
+      .submit {
+        border: 1px solid #ff4c59;
+        background-color: transparent;
+        width: 100%;
+        height: 40px;
+        position: relative;
+        color: #ff4c59;
+      }
+      .submit::before {
+        width: 0%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #ff4c59;
+        z-index: -1;
+        content: "";
+        transition: all 0.3s ease-in;
+      }
+      .submit:hover::before {
+        width: 100%;
+      }
+      .submit:hover {
+        color: white;
+        z-index: 1;
+      }
     }
+  }
+  .or {
+    font-size: 18px;
+    font-weight: 100;
+    text-align: center;
+    margin: 1rem 0;
+  }
+  .buttons {
+    width: 100%;
+  }
+  .google {
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    border: 1px solid royalblue;
+    padding: 0.5rem;
+    width: 100%;
+    color: royalblue;
+    position: relative;
+    z-index: 1;
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 9%;
+      margin-left: 3rem;
+      margin-top: 0.2rem;
+    }
+  }
+  .google::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    background-color: royalblue;
+    color: white !important;
+    transition: all 0.3s ease-in;
+    width: 0%;
+    height: 100%;
+    z-index: -1;
+  }
+  .google:hover::before {
+    width: 100%;
+  }
+  .google:hover {
+    color: white !important;
   }
 }
