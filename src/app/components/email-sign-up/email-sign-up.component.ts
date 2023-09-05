@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./email-sign-up.component.scss'],
 })
 export class EmailSignUpComponent implements OnInit {
-  emailRegister = 'EmailRegister/EmailRegister';
+  emailRegister = 'EmailRegister/EmailLogin';
   registerModle: any = {
     UserName: '',
     password: '',

@@ -3,8 +3,18 @@
     <h1>Login</h1>
     <div class="email">
       <form (ngSubmit)="emailSignIn()">
-        <input type="email" placeholder="Enter Your Email" />
-        <input type="password" placeholder="Enter Your Password" />
+        <input
+          type="email"
+          [(ngModel)]="registerModle.UserName"
+          name="UserName"
+          placeholder="Enter Your Email"
+        />
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="registerModle.password"
+          placeholder="Enter Your Password"
+        />
         <button type="submit" class="submit">Submit</button>
       </form>
     </div>
