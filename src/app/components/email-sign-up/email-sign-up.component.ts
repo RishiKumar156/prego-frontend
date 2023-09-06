@@ -46,4 +46,6 @@ export class EmailSignUpComponent implements OnInit {
     this.dialogRef.close();
     return this.authsharedService.GoogleSingIn();
   }
+
+  register() {}
 }

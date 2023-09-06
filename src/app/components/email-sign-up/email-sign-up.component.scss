@@ -1,5 +1,7 @@
 mat-dialog-content {
   margin: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .container {
@@ -11,7 +13,7 @@ mat-dialog-content {
     font-size: 24px;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 14px;
+    letter-spacing: 10px;
     margin-bottom: 2rem;
     color: royalblue;
   }
@@ -34,6 +36,9 @@ mat-dialog-content {
         margin-bottom: 2rem;
       }
       .submit {
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 900;
         border: 1px solid #ff4c59;
         background-color: transparent;
         width: 100%;
@@ -71,6 +76,9 @@ mat-dialog-content {
     width: 100%;
   }
   .google {
+    font-size: 14px !important;
+    text-transform: uppercase;
+    font-weight: 900;
     border: none;
     background-color: transparent;
     font-size: 16px;
@@ -107,4 +115,39 @@ mat-dialog-content {
   .google:hover {
     color: white !important;
   }
+}
+
+.register {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: royalblue;
+  border: none;
+  background: none;
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border: 1px solid royalblue;
+  background-color: transparent;
+  position: relative;
+  z-index: 1;
+}
+
+.register::before {
+  content: "";
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background-color: royalblue;
+  z-index: -1;
+  transition: all 0.3s ease-in;
+}
+
+.register:hover::before {
+  width: 100%;
+}
+
+.register:hover {
+  color: white;
 }
