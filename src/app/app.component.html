@@ -17,7 +17,14 @@
       <li><a *ngIf="jwt == ''" href="" class="auth2">Register</a></li>
       <li><a *ngIf="jwt != ''" href="" class="auth2">Profile</a></li>
       <li>
-        <button mat-menu-item><mat-icon>shopping_cart</mat-icon></button>
+        <button
+          matBadge="0"
+          matBadgeColor="accent"
+          matBadgePosition="after"
+          mat-menu-item
+        >
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
       </li>
     </ul>
   </div>

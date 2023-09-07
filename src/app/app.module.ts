@@ -24,6 +24,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
 import { OrdernowComponent } from './components/ordernow/ordernow.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatBadgeModule } from '@angular/material/badge';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +50,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatSelectModule,
     MatMenuModule,
     MatIconModule,
+    MatBadgeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
