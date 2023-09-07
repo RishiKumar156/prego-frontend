@@ -22,6 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatMenuModule } from '@angular/material/menu';
+import { OrdernowComponent } from './components/ordernow/ordernow.component';
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,7 @@ import { MatMenuModule } from '@angular/material/menu';
     HomepageComponent,
     EmailSignUpComponent,
     DashboardComponent,
+    OrdernowComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import { MatMenuModule } from '@angular/material/menu';
     HttpClientModule,
     MatSelectModule,
     MatMenuModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

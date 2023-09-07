@@ -48,12 +48,68 @@
   .details {
     width: 60%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     h1 {
       text-transform: uppercase;
       font-size: 24px;
       margin: 2rem;
       font-weight: 500;
       color: #ff4c59;
+    }
+    form {
+      margin-right: 5rem;
+      margin-bottom: 9rem;
+      .button {
+        display: flex;
+        width: 100%;
+        justify-content: flex-end;
+        margin-right: 5rem;
+        button {
+          margin-right: 3rem;
+          margin-top: 3rem;
+          padding: 0.5rem 3rem;
+          width: 30%;
+          border: 1px solid red;
+          font-size: 14px;
+          font-weight: 900;
+          text-transform: uppercase;
+          color: red;
+          background-color: transparent;
+          position: relative;
+        }
+        button::before {
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: -1;
+          content: "";
+          width: 0%;
+          height: 100%;
+          transition: all 0.3s ease-in;
+          background-color: #ff4c59;
+        }
+        button:hover:before {
+          width: 100%;
+        }
+        button:hover {
+          color: white;
+        }
+      }
+    }
+    .set {
+      display: flex;
+      justify-content: space-evenly;
+      input {
+        outline: none;
+        border: none;
+        border-bottom: 1px solid #ff4c58a1;
+        width: 50%;
+        margin: 1rem 3rem;
+        padding: 1rem;
+        background-color: #e8f0fe;
+      }
     }
   }
 }

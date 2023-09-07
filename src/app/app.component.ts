@@ -9,8 +9,14 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 })
 export class AppComponent {
   title = 'pregofrontend';
+  jwt: string = '';
   isScrolled = false;
   constructor(private dialog: MatDialog) {}
+  ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    // this.jwt = 'sometext';
+  }
   @HostListener('window:scroll', [])
   onWindowScroll() {
     this.isScrolled = window.scrollY > 0;

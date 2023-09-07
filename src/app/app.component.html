@@ -13,15 +13,11 @@
   </div>
   <div class="auths">
     <ul>
-      <li><a (click)="login()" class="auth1">Login</a></li>
-      <li><a href="" class="auth2">Register</a></li>
+      <li><a *ngIf="jwt == ''" (click)="login()" class="auth1">Login</a></li>
+      <li><a *ngIf="jwt == ''" href="" class="auth2">Register</a></li>
+      <li><a *ngIf="jwt != ''" href="" class="auth2">Profile</a></li>
       <li>
-        <button mat-button [matMenuTriggerFor]="menu">Options</button>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item>Profile</button>
-          <button mat-menu-item>Orders</button>
-          <button mat-menu-item>Favorites</button>
-        </mat-menu>
+        <button mat-menu-item><mat-icon>shopping_cart</mat-icon></button>
       </li>
     </ul>
   </div>
