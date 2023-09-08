@@ -62,41 +62,36 @@ export class AuthsharedService {
     );
   }
   GoogleSingIn() {
-    this.fireAuth.signInWithPopup(new GoogleAuthProvider()).then(
-      (res: any) => {
-        if (res) {
-          let GoogleMailid = res.additionalUserInfo?.profile;
-          const googleRegisterData = {
-            GmailId: GoogleMailid.email,
-            Gusername: GoogleMailid.name,
-            Picture: GoogleMailid.picture,
-            Gid: GoogleMailid.id,
-          };
-          this.GoogleUserData.next(googleRegisterData);
-          this.http
-            .post(
-              `${environment.baseURL}/${this.googleRegisterObj}`,
-              googleRegisterData
-            )
-            .subscribe(
-              (res) => {
-                // sessionStorage.setItem('GoogleId', GoogleMailid.id);
-                this.router.navigate(['/dashboard']);
-                alert('GoogleLogin successfully');
-              },
-              (err: HttpErrorResponse) => {
-                if (err.status == 400) {
-                  alert('User already exists , Please Login');
-                  this.router.navigate(['']);
-                }
+    this.fireAuth.signInWithPopup(new GoogleAuthProvider()).then((res: any) => {
+      if (res) {
+        let GoogleMailid = res.additionalUserInfo?.profile;
+        const googleRegisterData = {
+          GmailId: GoogleMailid.email,
+          Gusername: GoogleMailid.name,
+          Picture: GoogleMailid.picture,
+          Gid: GoogleMailid.id,
+        };
+        this.GoogleUserData.next(googleRegisterData);
+        this.http
+          .post(
+            `${environment.baseURL}/${this.googleRegisterObj}`,
+            googleRegisterData
+          )
+          .subscribe(
+            (data) => {
+              sessionStorage.setItem('JwtToken', JSON.stringify(data));
+              this.router.navigate(['/dashboard']);
+              alert('GoogleLogin successfully');
+              console.log(data);
+            },
+            (err: HttpErrorResponse) => {
+              if (err.status == 400) {
+                alert('User already exists , Please Login');
+                this.router.navigate(['']);
               }
-            );
-        }
-      },
-      (err) => {
-        alert('some thing went wrong');
-        console.log(err.message);
+            }
+          );
       }
-    );
+    });
   }
 }
