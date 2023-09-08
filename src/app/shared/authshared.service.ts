@@ -80,7 +80,7 @@ export class AuthsharedService {
             )
             .subscribe(
               (res) => {
-                sessionStorage.setItem('GoogleId', GoogleMailid.id);
+                // sessionStorage.setItem('GoogleId', GoogleMailid.id);
                 this.router.navigate(['/dashboard']);
                 alert('GoogleLogin successfully');
               },
