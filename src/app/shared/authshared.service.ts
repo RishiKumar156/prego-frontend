@@ -24,7 +24,7 @@ export class AuthsharedService {
   login(email: string, password: string) {
     this.fireAuth.signInWithEmailAndPassword(email, password).then(
       (res) => {
-        sessionStorage.setItem(JSON.stringify('auth'), 'token');
+        sessionStorage.setItem('auth', 'token');
         if (res) {
           this.router.navigate(['home']);
         }
@@ -80,7 +80,7 @@ export class AuthsharedService {
           )
           .subscribe(
             (data: any) => {
-              sessionStorage.setItem('JwtToken', JSON.stringify(data.jwtToken));
+              sessionStorage.setItem('JwtToken', data.jwtToken);
               this.router.navigate(['/dashboard']);
               alert('Google Register successfully');
               console.log(data);
@@ -114,7 +114,7 @@ export class AuthsharedService {
           .subscribe((data: any) => {
             this.router.navigate(['/dashboard']);
             alert('GoogleLogin successfully');
-            sessionStorage.setItem('JwtToken', JSON.stringify(data.jwt));
+            sessionStorage.setItem('JwtToken', data.jwt);
             console.log(data);
           });
       }

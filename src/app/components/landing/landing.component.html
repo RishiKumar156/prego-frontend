@@ -13,17 +13,29 @@
 
 <div class="reservation">
   <img src="../../../assets/images/restaurant.avif" alt="" />
-  <form action="">
+  <form>
     <h3>Reserve table now!</h3>
     <div class="inputs">
-      <input type="text" placeholder="Enter Your Name" />
-      <input type="text" placeholder="Enter Your Phone no" />
+      <input
+        [(ngModel)]="ReserveTable.OrderName"
+        type="text"
+        placeholder="Enter Your Name"
+        name="OrderName"
+      />
+      <input
+        [(ngModel)]="ReserveTable.PhoneNo"
+        name="PhoneNo"
+        type="text"
+        placeholder="Enter Your Phone no"
+      />
       <textarea
+        [(ngModel)]="ReserveTable.OrderDesc"
+        name="OrderDesc"
         rows="3"
         cols="15"
         placeholder="Describe the Food and Table requirement here.."
       ></textarea>
-      <button class="submit">reserve</button>
+      <button (click)="reserveTable()" class="submit">reserve</button>
     </div>
   </form>
 </div>
