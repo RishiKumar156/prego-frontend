@@ -78,8 +78,8 @@ export class AuthsharedService {
             googleRegisterData
           )
           .subscribe(
-            (data) => {
-              sessionStorage.setItem('JwtToken', JSON.stringify(data));
+            (data: any) => {
+              sessionStorage.setItem('JwtToken', JSON.stringify(data.jwtToken));
               this.router.navigate(['/dashboard']);
               alert('GoogleLogin successfully');
               console.log(data);
