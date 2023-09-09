@@ -12,6 +12,7 @@ import { BehaviorSubject, Subject, map } from 'rxjs';
 })
 export class AuthsharedService {
   googleRegisterObj: string = 'Google/newuser';
+  googleLogin: string = 'Google/Glogin';
   private GoogleUserData = new BehaviorSubject<any>(null);
   public userData = this.GoogleUserData.asObservable();
   constructor(
@@ -81,7 +82,7 @@ export class AuthsharedService {
             (data: any) => {
               sessionStorage.setItem('JwtToken', JSON.stringify(data.jwtToken));
               this.router.navigate(['/dashboard']);
-              alert('GoogleLogin successfully');
+              alert('Google Register successfully');
               console.log(data);
             },
             (err: HttpErrorResponse) => {
@@ -91,6 +92,31 @@ export class AuthsharedService {
               }
             }
           );
+      }
+    });
+  }
+  Googlelogin() {
+    this.fireAuth.signInWithPopup(new GoogleAuthProvider()).then((res: any) => {
+      if (res) {
+        let GoogleMailid = res.additionalUserInfo?.profile;
+        const googleRegisterData = {
+          GmailId: GoogleMailid.email,
+          Gusername: GoogleMailid.name,
+          Picture: GoogleMailid.picture,
+          Gid: GoogleMailid.id,
+        };
+        this.GoogleUserData.next(googleRegisterData);
+        this.http
+          .post(
+            `${environment.baseURL}/${this.googleLogin}`,
+            googleRegisterData
+          )
+          .subscribe((data: any) => {
+            this.router.navigate(['/dashboard']);
+            alert('GoogleLogin successfully');
+            sessionStorage.setItem('JwtToken', JSON.stringify(data.jwt));
+            console.log(data);
+          });
       }
     });
   }
