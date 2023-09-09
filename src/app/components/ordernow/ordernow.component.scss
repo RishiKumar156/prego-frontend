@@ -1,0 +1,54 @@
+.container {
+  width: 100%;
+  height: auto;
+  padding-top: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  .card {
+    background-color: royalblue;
+    width: calc(100% / 4);
+    height: 430px;
+    margin: 2rem 1rem;
+    .image-holder {
+      height: 40%;
+      .image {
+        width: 100%;
+        height: 100%;
+        background-color: red;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem;
+      h1 {
+        font-size: 18px;
+        font-weight: 900;
+        color: white;
+        letter-spacing: 0.1rem;
+      }
+      p {
+        font-size: 14px;
+        font-weight: 100;
+        color: white;
+        text-align: center;
+      }
+      .submit {
+        border: none;
+        width: 100%;
+        height: auto;
+        background-color: white;
+        color: royalblue;
+        text-transform: uppercase;
+        font-weight: 900;
+        padding: 0.5rem;
+      }
+    }
+  }
+}

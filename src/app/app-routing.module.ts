@@ -5,6 +5,7 @@ import { UserprofileComponent } from './components/userprofile/userprofile.compo
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { ErrorComponent } from './components/error/error.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { OrdernowComponent } from './components/ordernow/ordernow.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: 'dashboard',
     component: DashboardComponent,
+  },
+  {
+    path: 'ordernow',
+    component: OrdernowComponent,
   },
 ];
 

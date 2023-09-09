@@ -80,6 +80,7 @@ export class AuthsharedService {
           )
           .subscribe(
             (data: any) => {
+              this.GoogleUserData = data;
               sessionStorage.setItem('JwtToken', data.jwtToken);
               this.router.navigate(['/dashboard']);
               alert('Google Register successfully');
@@ -112,6 +113,7 @@ export class AuthsharedService {
             googleRegisterData
           )
           .subscribe((data: any) => {
+            this.GoogleUserData = data;
             this.router.navigate(['/dashboard']);
             alert('GoogleLogin successfully');
             sessionStorage.setItem('JwtToken', data.jwt);

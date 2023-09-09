@@ -1,9 +1,12 @@
 <div class="container">
   <div class="profile">
-    <div class="profile-pic-container"></div>
+    <div
+      [style.backgroundImage]="'url(' + UserObj.Picture + ')'"
+      class="profile-pic-container"
+    ></div>
     <div class="names">
-      <p>Mamoa Jonson</p>
-      <span>Mamoa@gmail.com</span>
+      <p>{{ UserObj.GuserName }}</p>
+      <span>{{ UserObj.email }}</span>
       <p class="phone">+14 3906 5906</p>
       <p class="address">Alaska sotne road 6th street, Californaiya finland</p>
     </div>
