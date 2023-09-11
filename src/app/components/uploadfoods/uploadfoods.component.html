@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="holder">
+    <form>
+      <input
+        type="text"
+        name="foodName"
+        [(ngModel)]="Storefood.foodName"
+        placeholder="Food Name"
+      />
+      <input
+        type="text"
+        name="pricing"
+        [(ngModel)]="Storefood.pricing"
+        placeholder="Food Price"
+      />
+      <textarea
+        type="text"
+        rows="3"
+        cols="5"
+        placeholder="Food Description"
+        [(ngModel)]="Storefood.foodDesc"
+        name="foodDesc"
+      ></textarea>
+      <input
+        type="file"
+        name="imgaeUrl"
+        [(ngModel)]="Storefood.imgaeUrl"
+        class="file"
+        (change)="onFileSelected($event)"
+      />
+      <button (click)="CreateFood()" class="submit">Submit</button>
+    </form>
+    <div class="picture"></div>
+  </div>
+</div>

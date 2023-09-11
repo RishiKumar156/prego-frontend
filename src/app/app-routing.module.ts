@@ -6,6 +6,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { ErrorComponent } from './components/error/error.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { OrdernowComponent } from './components/ordernow/ordernow.component';
+import { UploadfoodsComponent } from './components/uploadfoods/uploadfoods.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'ordernow',
     component: OrdernowComponent,
+  },
+  {
+    path: 'addFood',
+    component: UploadfoodsComponent,
   },
 ];
 

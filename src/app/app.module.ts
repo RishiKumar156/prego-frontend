@@ -25,6 +25,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { OrdernowComponent } from './components/ordernow/ordernow.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
+import { UploadfoodsComponent } from './components/uploadfoods/uploadfoods.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { MatBadgeModule } from '@angular/material/badge';
     EmailSignUpComponent,
     DashboardComponent,
     OrdernowComponent,
+    UploadfoodsComponent,
   ],
   imports: [
     BrowserModule,
