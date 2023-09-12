@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ErrorComponent } from './components/error/error.component';
 import { LandingComponent } from './components/landing/landing.component';
-import { UserprofileComponent } from './components/userprofile/userprofile.component';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import { AngularFireModule } from '@angular/fire/compat';
@@ -31,7 +30,6 @@ import { UploadfoodsComponent } from './components/uploadfoods/uploadfoods.compo
     AppComponent,
     ErrorComponent,
     LandingComponent,
-    UserprofileComponent,
     HomepageComponent,
     EmailSignUpComponent,
     DashboardComponent,

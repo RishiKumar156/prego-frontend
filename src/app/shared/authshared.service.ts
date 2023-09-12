@@ -82,7 +82,8 @@ export class AuthsharedService {
             (data: any) => {
               this.GoogleUserData = data;
               sessionStorage.setItem('JwtToken', data.jwtToken);
-              this.router.navigate(['/dashboard']);
+              window.location.reload();
+              this.router.navigate(['']);
               alert('Google Register successfully');
               console.log(data);
             },
@@ -114,9 +115,10 @@ export class AuthsharedService {
           )
           .subscribe((data: any) => {
             this.GoogleUserData = data;
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['']);
             alert('GoogleLogin successfully');
             sessionStorage.setItem('JwtToken', data.jwt);
+            window.location.reload();
             console.log(data);
           });
       }

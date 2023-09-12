@@ -13,9 +13,13 @@
   </div>
   <div class="auths">
     <ul>
-      <li><a *ngIf="jwt == ''" (click)="login()" class="auth1">Login</a></li>
-      <li><a *ngIf="jwt == ''" href="" class="auth2">Register</a></li>
-      <li><a *ngIf="jwt != ''" href="" class="auth2">Profile</a></li>
+      <li><a *ngIf="jt == null" (click)="login()" class="auth1">Login</a></li>
+      <li><a *ngIf="jt == null" href="" class="auth2">Register</a></li>
+      <li>
+        <a *ngIf="jt != null" routerLink="dashboard" href="" class="auth2"
+          >Profile</a
+        >
+      </li>
       <li>
         <button
           matBadge="0"
