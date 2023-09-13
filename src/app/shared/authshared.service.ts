@@ -13,6 +13,7 @@ import { BehaviorSubject, Subject, map } from 'rxjs';
 export class AuthsharedService {
   googleRegisterObj: string = 'Google/newuser';
   googleLogin: string = 'Google/Glogin';
+  shareToCart: any = [];
   private GoogleUserData = new BehaviorSubject<any>(null);
   public userData = this.GoogleUserData.asObservable();
   constructor(

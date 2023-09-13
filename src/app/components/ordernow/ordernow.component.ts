@@ -1,5 +1,6 @@
+import { AuthsharedService } from 'src/app/shared/authshared.service';
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -10,14 +11,30 @@ import { environment } from 'src/environments/environment';
 export class OrdernowComponent implements OnInit {
   foodData: any;
   allFoods: string = 'OrderNow/Foods';
-  constructor(private http: HttpClient) {}
-
+  constructor(
+    private http: HttpClient,
+    private AuthsharedService: AuthsharedService,
+    private cdr: ChangeDetectorRef
+  ) {}
   ngOnInit(): void {
     this.http
       .get(`${environment.baseURL}/${this.allFoods}`)
       .subscribe((foods: any) => {
         this.foodData = foods;
-        console.log(foods);
       });
+  }
+  ordernow(data: any) {
+    // console.log(data);
+    this.AuthsharedService.shareToCart.push(data);
+  }
+  increment(foodData: any) {
+    foodData.foodQty++;
+    this.cdr.detectChanges();
+    // console.log(data);
+  }
+  decrement(foodData: any) {
+    foodData.foodQty++;
+    this.cdr.detectChanges();
+    // console.log(data);
   }
 }

@@ -1,5 +1,5 @@
 <div class="container">
-  <div *ngFor="let data of foodData" class="card">
+  <div *ngFor="let data of cartData" class="card">
     <div class="image-holder">
       <div
         [style.backgroundImage]="'url(' + data.imgaeUrl + ')'"
@@ -11,22 +11,15 @@
       <p>
         {{ data.foodDesc }}
       </p>
-      <div class="buttons">
-        <button (click)="ordernow(data)" class="submit">
-          order now
-          <div class="cart">${{ data.pricing }}</div>
-        </button>
-        <div class="set">
-          <button (click)="decrement(data)">-</button>
-          <button [innerHTML]="data.foodQty"></button
-          ><button (click)="increment(data)">+</button>
-        </div>
-      </div>
+      <button class="submit">
+        Check Out
+        <div class="cart">${{ data.pricing }}</div>
+      </button>
     </div>
   </div>
 </div>
 
-<div class="container nulltype" *ngIf="foodData == null">
+<div class="container nulltype" *ngIf="cartData == null">
   <div class="card">
     <div class="image-holder">
       <div class="image"></div>

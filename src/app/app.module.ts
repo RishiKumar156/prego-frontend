@@ -25,6 +25,7 @@ import { OrdernowComponent } from './components/ordernow/ordernow.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatBadgeModule } from '@angular/material/badge';
 import { UploadfoodsComponent } from './components/uploadfoods/uploadfoods.component';
+import { KartComponent } from './components/kart/kart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { UploadfoodsComponent } from './components/uploadfoods/uploadfoods.compo
     DashboardComponent,
     OrdernowComponent,
     UploadfoodsComponent,
+    KartComponent,
   ],
   imports: [
     BrowserModule,
