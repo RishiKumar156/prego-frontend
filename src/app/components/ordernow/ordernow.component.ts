@@ -24,17 +24,14 @@ export class OrdernowComponent implements OnInit {
       });
   }
   ordernow(data: any) {
-    // console.log(data);
     this.AuthsharedService.shareToCart.push(data);
   }
   increment(foodData: any) {
     foodData.foodQty++;
     this.cdr.detectChanges();
-    // console.log(data);
   }
   decrement(foodData: any) {
     foodData.foodQty++;
     this.cdr.detectChanges();
-    // console.log(data);
   }
 }
